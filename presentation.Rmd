@@ -1,0 +1,22 @@
+---
+title: "Shiny Application and Reproducible Pitch"
+author: "Tejas Mishra"
+date: "23 Nov 2021"
+output: ioslides_presentation
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r plot,warning=FALSE}
+library(HistData)
+##The data used in the app comes from the GaltonFamilies dataset. 
+data(GaltonFamilies)
+library(HistData)
+data(GaltonFamilies)
+plot(jitter(GaltonFamilies$childHeight) ~ GaltonFamilies$midparentHeight,xlab="Average Height of the Parents (in inches)",ylab="Height of the Child (in inches)",main="Scatterplot of Galton Family Data",pch=19,frame.plot=FALSE,col=ifelse(GaltonFamilies$gender=="female", "pink", "light blue"))
+legend(65,80,pch=c(19,19),col=c("pink","light blue"),c("female", "male"),bty="o",cex=.8)
+```
